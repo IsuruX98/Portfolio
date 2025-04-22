@@ -1,11 +1,10 @@
 # Personal Portfolio Website
 
-A modern, responsive personal portfolio website built with Next.js 15 and Tailwind CSS 4, featuring dark mode support, smooth animations, and interactive particle effects.
+A modern, responsive personal portfolio website built with Next.js 15 and Tailwind CSS 4, featuring smooth animations and interactive particle effects.
 
 ## Features
 
 - 🎨 Modern and responsive design
-- 🌓 Dark/Light mode toggle with next-themes
 - 🚀 Built with Next.js 15 and Tailwind CSS 4
 - ✨ Smooth animations with Framer Motion
 - 🌟 Interactive particle effects with tsparticles
@@ -23,7 +22,6 @@ A modern, responsive personal portfolio website built with Next.js 15 and Tailwi
 - [Heroicons](https://heroicons.com/) - Beautiful hand-crafted SVG icons
 - [tsparticles](https://particles.js.org/) - Interactive particle effects
 - [EmailJS](https://www.emailjs.com/) - Email service integration
-- [next-themes](https://github.com/pacocoursey/next-themes) - Dark mode support
 
 ## Getting Started
 
