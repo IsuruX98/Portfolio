@@ -1,132 +1,131 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { CodeBracketIcon, CommandLineIcon, ServerIcon, DevicePhoneMobileIcon } from '@heroicons/react/24/outline';
+import {
+  CodeBracketIcon,
+  CommandLineIcon,
+  ServerIcon,
+  DevicePhoneMobileIcon,
+} from '@heroicons/react/24/outline';
 import Image from 'next/image';
 
 const skills = [
-    {
-        category: 'Frontend',
-        icon: CodeBracketIcon,
-        items: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'JavaScript', 'HTML/CSS'],
-        color: 'from-blue-500 to-blue-600',
-    },
-    {
-        category: 'Backend',
-        icon: ServerIcon,
-        items: ['Node.js', 'Express', 'MongoDB', 'GraphQL', 'REST APIs', 'PostgreSQL'],
-        color: 'from-purple-500 to-purple-600',
-    },
-    {
-        category: 'Mobile',
-        icon: DevicePhoneMobileIcon,
-        items: ['React Native', 'Flutter', 'Android Development'],
-        color: 'from-green-500 to-green-600',
-    },
-    {
-        category: 'Tools',
-        icon: CommandLineIcon,
-        items: ['Git', 'Docker', 'AWS', 'Vercel', 'VS Code', 'Postman'],
-        color: 'from-orange-500 to-orange-600',
-    },
+  {
+    category: 'Frontend',
+    icon: CodeBracketIcon,
+    items: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'JavaScript', 'HTML/CSS'],
+    color: 'text-blue-400',
+    bg: 'bg-blue-500/10 border-blue-500/20',
+  },
+  {
+    category: 'Backend',
+    icon: ServerIcon,
+    items: ['Node.js', 'Express', 'MongoDB', 'GraphQL', 'REST APIs', 'PostgreSQL'],
+    color: 'text-violet-400',
+    bg: 'bg-violet-500/10 border-violet-500/20',
+  },
+  {
+    category: 'Mobile',
+    icon: DevicePhoneMobileIcon,
+    items: ['React Native', 'Flutter', 'Android Development'],
+    color: 'text-emerald-400',
+    bg: 'bg-emerald-500/10 border-emerald-500/20',
+  },
+  {
+    category: 'Tools',
+    icon: CommandLineIcon,
+    items: ['Git', 'Docker', 'AWS', 'Vercel', 'VS Code', 'Postman'],
+    color: 'text-amber-400',
+    bg: 'bg-amber-500/10 border-amber-500/20',
+  },
 ];
 
 export default function About() {
-    return (
-        <section id="about" className="py-12 sm:py-16 md:py-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
-                >
-                    <div className="text-center mb-12 sm:mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                            About Me
-                        </h2>
-                        <div className="w-20 h-0.5 bg-blue-500/50 mx-auto rounded-full"></div>
-                    </div>
+  return (
+    <section id="about" className="py-[var(--section-padding)]">
+      <div className="section-wrapper">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: '-80px' }}
+        >
+          <div className="text-center mb-14 md:mb-20">
+            <h2 className="section-heading">About Me</h2>
+            <span className="section-heading-accent" />
+          </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
-                        <div className="relative">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-25"></div>
-                            <div className="relative bg-white/5 backdrop-blur-lg p-6 sm:p-8 rounded-lg border border-white/10">
-                                <div className="flex flex-col sm:flex-row items-center sm:items-start mb-6 sm:mb-8">
-                                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden sm:mr-6 ring-2 ring-blue-500/50 mb-4 sm:mb-0">
-                                        <Image
-                                            src="/images/img.JPG"
-                                            alt="Profile"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <div className="text-center sm:text-left">
-                                        <h3 className="text-xl sm:text-2xl font-bold text-white">Isuru Madusanka</h3>
-                                        <p className="text-blue-400">Full Stack Developer</p>
-                                    </div>
-                                </div>
-                                <p className="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6 leading-relaxed">
-                                    I&apos;m a passionate Software Engineer with a strong foundation in full-stack development.
-                                    Currently working as an Associate Software Engineer at Tecsota, I specialize in building
-                                    modern web applications using cutting-edge technologies.
-                                </p>
-                                <p className="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6 leading-relaxed">
-                                    My journey in software development has been driven by a constant desire to learn and
-                                    create impactful solutions. I enjoy collaborating in agile teams and solving complex
-                                    problems with elegant code.
-                                </p>
-                                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                                    When I&apos;m not coding, you can find me exploring new technologies, contributing to open-source
-                                    projects, or mentoring aspiring developers.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 className="text-xl sm:text-2xl font-semibold text-white mb-6 sm:mb-8 text-center">
-                                My Tech Stack
-                            </h3>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                                {skills.map((skill) => (
-                                    <motion.div
-                                        key={skill.category}
-                                        whileHover={{ scale: 1.02 }}
-                                        className="relative group h-full"
-                                    >
-                                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-25 transition duration-300"></div>
-                                        <div className="relative bg-white/5 backdrop-blur-lg p-4 sm:p-6 rounded-lg border border-white/10 h-full">
-                                            <div className="flex items-center mb-3 sm:mb-4">
-                                                {skill.category === 'Frontend' && (
-                                                    <skill.icon className="h-5 w-5 sm:h-6 sm:w-6 mr-3 text-blue-400" />
-                                                )}
-                                                {skill.category === 'Backend' && (
-                                                    <skill.icon className="h-5 w-5 sm:h-6 sm:w-6 mr-3 text-purple-400" />
-                                                )}
-                                                {skill.category === 'Mobile' && (
-                                                    <skill.icon className="h-5 w-5 sm:h-6 sm:w-6 mr-3 text-green-400" />
-                                                )}
-                                                {skill.category === 'Tools' && (
-                                                    <skill.icon className="h-5 w-5 sm:h-6 sm:w-6 mr-3 text-orange-400" />
-                                                )}
-                                                <h4 className="text-base sm:text-lg font-semibold text-white">{skill.category}</h4>
-                                            </div>
-                                            <div className="flex flex-wrap gap-2">
-                                                {skill.items.map((item) => (
-                                                    <span
-                                                        key={item}
-                                                        className="px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-full bg-white/5 text-gray-300 border border-white/10"
-                                                    >
-                                                        {item}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
+            {/* Bio card */}
+            <div className="order-2 lg:order-1">
+              <div className="card-surface p-6 sm:p-8 h-full flex flex-col">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shrink-0 ring-2 ring-[var(--accent)]/30">
+                    <Image
+                      src="/images/img.JPG"
+                      alt="Isuru Madusanka"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 96px, 112px"
+                      priority
+                    />
+                  </div>
+                  <div className="text-center sm:text-left">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[var(--foreground)]">Isuru Madusanka</h3>
+                    <p className="text-[var(--accent)] font-medium mt-1">Full Stack Developer</p>
+                  </div>
+                </div>
+                <div className="space-y-4 text-[var(--muted-foreground)] leading-relaxed">
+                  <p>
+                    I&apos;m a Software Engineer with a strong foundation in full-stack development, currently at Tecsota. I specialize in building modern web and mobile applications with React, Next.js, Node.js, and React Native.
+                  </p>
+                  <p>
+                    My work is driven by a focus on clean architecture, maintainable code, and collaboration in agile teams. I enjoy solving complex problems and shipping features that users rely on.
+                  </p>
+                  <p>
+                    Outside of work I explore new technologies, contribute to open source, and help other developers grow.
+                  </p>
+                </div>
+              </div>
             </div>
-        </section>
-    );
-} 
+
+            {/* Skills */}
+            <div className="order-1 lg:order-2">
+              <h3 className="text-lg font-semibold text-[var(--foreground)] mb-6">Tech stack</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {skills.map((skill) => (
+                  <motion.div
+                    key={skill.category}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -2 }}
+                    className="card-surface p-5 rounded-xl border transition-shadow hover:shadow-lg hover:shadow-[var(--accent)]/5"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className={`p-2 rounded-lg border ${skill.bg}`}>
+                        <skill.icon className={`h-5 w-5 ${skill.color}`} />
+                      </span>
+                      <h4 className="font-semibold text-[var(--foreground)]">{skill.category}</h4>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {skill.items.map((item) => (
+                        <span
+                          key={item}
+                          className="px-3 py-1 text-xs font-medium rounded-lg bg-white/5 text-[var(--muted-foreground)] border border-[var(--card-border)]"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}

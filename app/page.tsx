@@ -6,17 +6,19 @@ import About from '../components/About';
 import Experience from '../components/Experience';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950">
+    <main className="min-h-screen bg-[var(--background)]">
       <Navbar />
-      <div className="space-y-16 sm:space-y-24 md:space-y-32">
+      <div className="flex flex-col">
         <Hero />
         <About />
         <Experience />
         <Projects />
         <Contact />
+        <Footer />
       </div>
     </main>
   );
