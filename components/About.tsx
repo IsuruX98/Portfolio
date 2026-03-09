@@ -57,7 +57,7 @@ export default function About() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
             {/* Bio card */}
-            <div className="order-2 lg:order-1">
+            <div className="order-1 lg:order-1">
               <div className="card-surface p-6 sm:p-8 h-full flex flex-col">
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
                   <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shrink-0 ring-2 ring-[var(--accent)]/30 bg-white/10 backdrop-blur-sm border border-white/10">
@@ -90,7 +90,7 @@ export default function About() {
             </div>
 
             {/* Skills */}
-            <div className="order-1 lg:order-2">
+            <div className="order-2 lg:order-2">
               <h3 className="text-lg font-semibold text-[var(--foreground)] mb-6">Tech stack</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {skills.map((skill) => (

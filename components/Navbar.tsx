@@ -50,7 +50,13 @@ export default function Navbar() {
   }, [isOpen]);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const hero = document.getElementById('hero');
+    if (hero) {
+      hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    if (typeof window !== 'undefined' && window.location.hash !== '#hero') {
+      window.location.hash = '#hero';
+    }
   };
 
   return (
