@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -17,6 +17,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +35,19 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (menuRef.current && !menuRef.current.contains(target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
 
   return (
     <header
@@ -58,7 +72,8 @@ export default function Navbar() {
           />
         )}
       </AnimatePresence>
-      <nav className="section-wrapper relative z-10">
+      <div ref={menuRef} className="relative z-10">
+      <nav className="section-wrapper">
         <div className="flex items-center justify-between h-16">
           <Link
             href="#hero"
@@ -131,6 +146,7 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+      </div>
     </header>
   );
 }
