@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--background)]">
+    <main className="min-h-screen bg-[var(--background)] bg-gradient-to-b from-zinc-950 via-[var(--background)] to-zinc-950">
       <Navbar />
       <div className="flex flex-col">
         <Hero />

@@ -82,7 +82,7 @@ const education = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-[var(--section-padding)] bg-[var(--card)]/50">
+    <section id="experience" className="py-[var(--section-padding)] bg-white/[0.02] backdrop-blur-sm">
       <div className="section-wrapper">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -114,7 +114,7 @@ export default function Experience() {
                   className="card-surface p-4 flex flex-col gap-3 h-full"
                 >
                   <div className="flex gap-3 shrink-0">
-                    <div className="shrink-0 w-10 h-10 rounded-lg overflow-hidden bg-white/5 flex items-center justify-center border border-[var(--card-border)]">
+                    <div className="shrink-0 w-10 h-10 rounded-lg overflow-hidden bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10">
                       <Image src={exp.logo} alt="" width={40} height={40} className="w-10 h-10 object-contain" />
                     </div>
                     <div className="min-w-0 flex-1">
@@ -167,7 +167,7 @@ export default function Experience() {
                   viewport={{ once: true }}
                   className="card-surface p-4 flex gap-4 h-full"
                 >
-                  <div className="shrink-0 w-10 h-10 rounded-lg overflow-hidden bg-white/5 flex items-center justify-center border border-[var(--card-border)]">
+                  <div className="shrink-0 w-10 h-10 rounded-lg overflow-hidden bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10">
                     <Image src={edu.logo} alt="" width={40} height={40} className="w-10 h-10 object-contain" />
                   </div>
                   <div className="min-w-0 flex-1">

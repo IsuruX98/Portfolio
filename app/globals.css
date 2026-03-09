@@ -7,6 +7,9 @@
   --muted-foreground: #a1a1aa;
   --card: #18181b;
   --card-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg-strong: rgba(255, 255, 255, 0.08);
   --accent: #3b82f6;
   --accent-hover: #2563eb;
   --accent-muted: rgba(59, 130, 246, 0.15);
@@ -83,12 +86,29 @@ body {
   border-radius: 9999px;
 }
 
-/* Card surface */
+/* Glass UI – base */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-strong {
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Card surface – glass style */
 .card-surface {
-  background: var(--card);
-  border: 1px solid var(--card-border);
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.15);
 }
 
 /* Focus visible for accessibility */

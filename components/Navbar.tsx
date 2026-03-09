@@ -38,10 +38,27 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[var(--background)]/90 backdrop-blur-md border-b border-[var(--card-border)]' : 'bg-transparent'
+        scrolled
+          ? 'bg-white/10 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/5'
+          : 'bg-transparent'
       }`}
+      style={scrolled ? { WebkitBackdropFilter: 'blur(24px)' } : undefined}
     >
-      <nav className="section-wrapper">
+      {/* Backdrop: click outside mobile menu to close */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 top-16 bg-black/30 backdrop-blur-sm md:hidden z-0"
+            aria-hidden="true"
+            onClick={() => setIsOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+      <nav className="section-wrapper relative z-10">
         <div className="flex items-center justify-between h-16">
           <Link
             href="#hero"
@@ -92,7 +109,8 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-[var(--card)] border-b border-[var(--card-border)] overflow-hidden"
+            className="md:hidden bg-[var(--glass-bg-strong)] backdrop-blur-xl border-b border-[var(--glass-border)] overflow-hidden relative z-10"
+            style={{ WebkitBackdropFilter: 'blur(24px)' }}
           >
             <div className="section-wrapper py-3 space-y-1">
               {navLinks.map((link) => (

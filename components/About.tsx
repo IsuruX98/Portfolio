@@ -42,7 +42,7 @@ const skills = [
 
 export default function About() {
   return (
-    <section id="about" className="py-[var(--section-padding)]">
+    <section id="about" className="py-[var(--section-padding)] bg-white/[0.01]">
       <div className="section-wrapper">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ export default function About() {
             <div className="order-2 lg:order-1">
               <div className="card-surface p-6 sm:p-8 h-full flex flex-col">
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
-                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shrink-0 ring-2 ring-[var(--accent)]/30">
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shrink-0 ring-2 ring-[var(--accent)]/30 bg-white/10 backdrop-blur-sm border border-white/10">
                     <Image
                       src="/images/img.JPG"
                       alt="Isuru Madusanka"
@@ -101,7 +101,7 @@ export default function About() {
                     transition={{ duration: 0.4 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -2 }}
-                    className="card-surface p-5 rounded-xl border transition-shadow hover:shadow-lg hover:shadow-[var(--accent)]/5"
+                    className="card-surface p-5 rounded-xl transition-shadow hover:shadow-lg hover:shadow-[var(--accent)]/5"
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <span className={`p-2 rounded-lg border ${skill.bg}`}>
@@ -113,7 +113,7 @@ export default function About() {
                       {skill.items.map((item) => (
                         <span
                           key={item}
-                          className="px-3 py-1 text-xs font-medium rounded-lg bg-white/5 text-[var(--muted-foreground)] border border-[var(--card-border)]"
+                          className="px-3 py-1 text-xs font-medium rounded-lg bg-white/10 backdrop-blur-sm text-[var(--muted-foreground)] border border-white/10"
                         >
                           {item}
                         </span>

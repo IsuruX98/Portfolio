@@ -56,7 +56,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-[var(--section-padding)] bg-[var(--card)]/50">
+    <section id="contact" className="py-[var(--section-padding)] bg-white/[0.02] backdrop-blur-sm">
       <div className="section-wrapper">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ export default function Contact() {
                       className="flex items-center gap-4 text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors group"
                       whileHover={{ x: 4 }}
                     >
-                      <span className="p-2.5 rounded-xl bg-white/5 border border-[var(--card-border)] group-hover:border-[var(--accent)]/30 transition-colors">
+                      <span className="p-2.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 group-hover:border-[var(--accent)]/30 transition-colors">
                         <info.icon className="h-5 w-5 text-[var(--accent)]" />
                       </span>
                       <span className="text-sm sm:text-base">{info.text}</span>
@@ -103,7 +103,7 @@ export default function Contact() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-white/5 border border-[var(--card-border)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:border-[var(--accent)]/30 transition-all"
+                      className="p-2.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:border-[var(--accent)]/30 transition-all"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.98 }}
                       aria-label={social.name}
@@ -129,7 +129,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-[var(--card-border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-shadow"
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 text-[var(--foreground)] placeholder-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-shadow"
                     placeholder="Your name"
                   />
                 </div>
@@ -144,7 +144,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-[var(--card-border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-shadow"
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 text-[var(--foreground)] placeholder-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-shadow"
                     placeholder="Your email"
                   />
                 </div>
@@ -159,7 +159,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={4}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-[var(--card-border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-shadow resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 text-[var(--foreground)] placeholder-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-shadow resize-none"
                     placeholder="Your message"
                   />
                 </div>

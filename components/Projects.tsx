@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowTopRightOnSquareIcon, CodeBracketIcon, ChevronLeftIcon, ChevronRightIcon, XMarkIcon, PhotoIcon, ArrowsPointingOutIcon, ServerStackIcon } from '@heroicons/react/24/outline';
@@ -52,13 +53,13 @@ function GalleryModal({
         return () => window.removeEventListener('keydown', handleEscape);
     }, [onClose]);
 
-    return (
+    const modalContent = (
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
             onClick={handleBackdropClick}
         >
                 <motion.div
@@ -66,10 +67,11 @@ function GalleryModal({
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="relative w-full max-w-4xl max-h-[90vh] flex flex-col bg-[var(--card)] rounded-2xl border border-[var(--card-border)] overflow-hidden shadow-2xl"
+                    className="w-full max-w-4xl max-h-[90vh] flex flex-col bg-white/10 backdrop-blur-2xl rounded-2xl border border-white/20 overflow-hidden shadow-2xl shadow-black/20"
+                    style={{ WebkitBackdropFilter: 'blur(24px)' }}
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <div className="flex items-center justify-between gap-2 px-4 py-3 border-b border-[var(--card-border)] shrink-0">
+                    <div className="flex items-center justify-between gap-2 px-4 py-3 border-b border-white/10 shrink-0">
                         <h3 className="text-lg font-semibold text-[var(--foreground)] truncate min-w-0">{title}</h3>
                         <div className="flex items-center gap-1 shrink-0">
                             <a
@@ -93,7 +95,7 @@ function GalleryModal({
                         </div>
                     </div>
                     <div className="relative flex-1 min-h-0 flex flex-col items-center justify-center p-4">
-                        <div className="relative w-full aspect-video max-h-[60vh] rounded-xl overflow-hidden bg-[var(--card)]">
+                        <div className="relative w-full aspect-video max-h-[60vh] rounded-xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={currentIndex}
@@ -166,6 +168,9 @@ function GalleryModal({
                 </motion.div>
         </motion.div>
     );
+
+    if (typeof document === 'undefined') return null;
+    return createPortal(modalContent, document.body);
 }
 
 const industryProjects = [
@@ -406,7 +411,7 @@ function ProjectCard({
                         {project.technologies.map((tech) => (
                             <span
                                 key={tech}
-                                className="px-2.5 py-1 text-xs rounded-lg bg-white/5 text-[var(--muted-foreground)] border border-[var(--card-border)]"
+                                className="px-2.5 py-1 text-xs rounded-lg bg-white/10 backdrop-blur-sm text-[var(--muted-foreground)] border border-white/10"
                             >
                                 {tech}
                             </span>
@@ -486,7 +491,7 @@ export default function Projects() {
     };
 
     return (
-        <section id="projects" className="py-[var(--section-padding)]">
+        <section id="projects" className="py-[var(--section-padding)] bg-white/[0.02] backdrop-blur-sm">
             <AnimatePresence>
                 {galleryProject && (
                     <GalleryModal
@@ -551,7 +556,7 @@ export default function Projects() {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-medium text-[var(--foreground)] bg-white/5 border border-[var(--card-border)] hover:bg-white/10 transition-colors"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-medium text-[var(--foreground)] bg-white/10 backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors"
                         >
                             <CodeBracketIcon className="h-5 w-5" />
                             View All Repositories on GitHub

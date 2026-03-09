@@ -79,7 +79,7 @@ export default function Hero() {
                             href="#contact"
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.98 }}
-                            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-[var(--foreground)] bg-white/10 border border-[var(--card-border)] hover:bg-white/15 transition-colors"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-[var(--foreground)] bg-white/10 border border-white/20 backdrop-blur-md hover:bg-white/15 transition-colors"
                         >
                             Get in touch
                         </motion.a>

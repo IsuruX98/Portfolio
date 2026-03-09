@@ -7,7 +7,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[var(--card-border)] bg-[var(--background)]">
+    <footer className="border-t border-white/10 bg-white/[0.03] backdrop-blur-md">
       <div className="section-wrapper py-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[var(--muted-foreground)]">
