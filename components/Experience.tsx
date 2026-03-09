@@ -2,7 +2,12 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { BriefcaseIcon, AcademicCapIcon } from '@heroicons/react/24/outline';
+import {
+  BriefcaseIcon,
+  AcademicCapIcon,
+  DocumentTextIcon,
+  ArrowTopRightOnSquareIcon,
+} from '@heroicons/react/24/outline';
 
 const experiences = [
   {
@@ -80,6 +85,18 @@ const education = [
   },
 ];
 
+const publications = [
+  {
+    title: 'IEMS: An AI-Framework Fusing IoT, Deep Learning, and LLMs for Multi-Domain Urban Environmental Monitoring and Actionable Sustainability Insights',
+    journal: 'Journal of Robotics and Control',
+    date: 'Jan 27, 2026',
+    url: 'https://journal.umy.ac.id/index.php/jrc/article/view/26867',
+    authors: 'Kodithuwakku C.K., Arandara S.D., Karunarathne R.Y.D.',
+    abstract:
+      'The study introduces the Intelligent EcoUrban Monitoring System (IEMS), an integrated AI-driven framework that combines IoT data, deep learning models, satellite imagery, and large language models to address key urban environmental challenges such as air pollution, noise, CO₂ emissions, and green space depletion. By unifying specialized components for air quality analysis, green space assessment, noise classification, and vehicle CO₂ estimation within a centralized data fusion pipeline, IEMS enables cross-domain intelligence and actionable insights for urban planners and policymakers. Experimental results demonstrate strong performance across multiple domains, highlighting the potential of AI-powered, multi-modal systems to support data-driven and sustainable urban development.',
+  },
+];
+
 export default function Experience() {
   return (
     <section id="experience" className="py-[var(--section-padding)] bg-white/[0.02] backdrop-blur-sm">
@@ -91,7 +108,7 @@ export default function Experience() {
           viewport={{ once: true, margin: '-80px' }}
         >
           <div className="text-center mb-14 md:mb-20">
-            <h2 className="section-heading">Experience & Education</h2>
+            <h2 className="section-heading">Experience, Education & Publications</h2>
             <span className="section-heading-accent" />
           </div>
 
@@ -181,6 +198,54 @@ export default function Experience() {
                     )}
                     <p className="text-xs text-[var(--muted-foreground)] mt-1">{edu.period}</p>
                   </div>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+
+          {/* Publications */}
+          <div className="mt-14">
+            <div className="flex items-center gap-2 mb-6">
+              <span className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+                <DocumentTextIcon className="h-5 w-5 text-emerald-400" />
+              </span>
+              <h3 className="text-lg font-semibold text-[var(--foreground)]">Publications</h3>
+            </div>
+            <div className="grid grid-cols-1 gap-4">
+              {publications.map((pub, index) => (
+                <motion.article
+                  key={index}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.06 }}
+                  viewport={{ once: true }}
+                  className="card-surface p-4 md:p-5 flex flex-col gap-3"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                    <h4 className="text-sm font-semibold text-[var(--foreground)] leading-snug pr-2">
+                      {pub.title}
+                    </h4>
+                    <a
+                      href={pub.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="shrink-0 inline-flex items-center gap-1 text-xs font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+                    >
+                      <span>Read article</span>
+                      <ArrowTopRightOnSquareIcon className="h-3.5 w-3.5" />
+                    </a>
+                  </div>
+                  <p className="text-xs text-emerald-400">
+                    {pub.journal} · {pub.date}
+                  </p>
+                  {pub.authors && (
+                    <p className="text-xs text-[var(--muted-foreground)]">
+                      With {pub.authors}
+                    </p>
+                  )}
+                  <p className="text-xs text-[var(--muted-foreground)] leading-relaxed">
+                    {pub.abstract}
+                  </p>
                 </motion.article>
               ))}
             </div>
