@@ -53,7 +53,7 @@ export default function About() {
                                 <div className="flex flex-col sm:flex-row items-center sm:items-start mb-6 sm:mb-8">
                                     <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden sm:mr-6 ring-2 ring-blue-500/50 mb-4 sm:mb-0">
                                         <Image
-                                            src="/images/img.JPEG"
+                                            src="/images/img.JPG"
                                             alt="Profile"
                                             fill
                                             className="object-cover"
