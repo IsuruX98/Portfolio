@@ -62,7 +62,7 @@ export default function About() {
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
                   <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shrink-0 ring-2 ring-[var(--accent)]/30 bg-white/10 backdrop-blur-sm border border-white/10">
                     <Image
-                      src="/images/img.JPG"
+                      src="/images/about.PNG"
                       alt="Isuru Madusanka"
                       fill
                       className="object-cover"
